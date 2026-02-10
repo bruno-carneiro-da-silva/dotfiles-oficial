@@ -18,13 +18,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Import color theme based on environment variable NVIM_THEME
-local default_color_scheme = 'nord'
+local default_color_scheme = 'tokyo'
 local env_var_nvim_theme = os.getenv 'NVIM_THEME' or default_color_scheme
 
 -- Define a table of theme modules
 local themes = {
-  nord = 'plugins.themes.nord',
-  onedark = 'plugins.themes.onedark',
+  nord     = 'plugins.themes.nord',
+  onedark  = 'plugins.themes.onedark',
+  tokyo    = 'plugins.themes.tokyonight',  -- ← nova linha
+  moon     = 'plugins.themes.tokyonight',  -- opcional: atalho pra moon direto
 }
 
 -- Setup plugins

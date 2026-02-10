@@ -39,3 +39,15 @@ export CPPFLAGS="-I/usr/local/opt/zlib/include -I/usr/local/opt/bzip2/include"
 # Hide computer name in terminal
 export DEFAULT_USER="$(whoami)"
 
+. "$HOME/.cargo/env"
+
+# Pyenv - PATH precoce (essencial para tmux + zsh)
+export PYENV_ROOT="$HOME/.pyenv"
+
+# Adiciona o binário do pyenv ao PATH (se o diretório existir)
+[[ -d "$PYENV_ROOT/bin" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+
+# Adiciona os shims ao PATH de forma segura (não depende do pyenv já existir)
+if command -v pyenv >/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+fi
